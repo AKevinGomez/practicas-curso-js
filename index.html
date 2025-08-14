@@ -1,12 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="script.js"></script>
-    <title>Proyecto Javascript</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="javascript/scriptSimulador.js"></script>
+    <title>Segunda preentrega</title>
 </head>
+
 <body>
-    <h1>Primera preentrega</h1>
+    <main>
+        <h1 class="bordeTitulos">Bienvenido al simulador de Director tecnico!</h1>
+        <div>
+            <input type="text" placeholder="Ingresa el nombre de tu equipo!" id="nombreEquipoUser">
+            <button id="nombreBtn" class="btn">Confirmar</button>
+        </div>
+        <div class="contSimulador">
+            <div class="contFormaciones">
+                <h3 class="bordeTitulos">Selecciona tu formacion</h3>
+                <div class="contBotonesFormacion">
+                    <button id="form1" class="btn">3-4-3</button>
+                    <button id="form2" class="btn">4-4-2</button>
+                    <button id="form3" class="btn">4-3-3</button>
+                </div>
+            </div>
+            <div id="mapaCampo" class="lienzo">
+                <div class="contLienzoJugadores">
+                    <div id="arquero" class="colJug">
+                        <!-- <div class="globoJugador jugadorArq">
+                            <button class="jugador" id="">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div> -->
+                    </div>
+                    <div id="defensores" class="colJug">
+                        <!-- <div class="globoJugador jugadorDef">
+                            <button class="jugador" id="valorDefensor1">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div>
+                        <div class="globoJugador jugadorDef">
+                            <button class="jugador" id="valorDefensor2">0</button>
+                            <p class="nombreJugador">nombre2</p>
+                        </div>
+                        <div class="globoJugador jugadorDef">
+                            <button class="jugador" id="valorDefensor3">0</button>
+                            <p class="nombreJugador">nombre3</p>
+                        </div>
+                        <div class="globoJugador jugadorDef">
+                            <button class="jugador" id="valorDefensor4">0</button>
+                            <p class="nombreJugador">nombre4</p>
+                        </div> -->
+                    </div>
+                    <div id="mediocampistas" class="colJug">
+                        <!-- <div class="globoJugador jugadorMedio">
+                            <button class="jugador">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div>
+                        <div class="globoJugador jugadorMedio">
+                            <button class="jugador">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div>
+                        <div class="globoJugador jugadorMedio">
+                            <button class="jugador">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div>
+                        <div class="globoJugador jugadorMedio">
+                            <button class="jugador">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div> -->
+                    </div>
+                    <div id="delanteros" class="colJug">
+                        <!-- <div class="globoJugador jugadorDel">
+                            <button class="jugador">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div>
+                        <div class="globoJugador jugadorDel">
+                            <button class="jugador">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div>
+                        <div class="globoJugador jugadorDel">
+                            <button class="jugador">0</button>
+                            <p class="nombreJugador">nombre</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <article>
+                <div>
+                    <h2 class="bordeTitulos">Haz click en los jugadores del grafico y elige quienes estan en la
+                        planilla.</h2>
+                    <h4>Presta atencion a la posicion que juega cada jugador!! Ubicarlo en otra posicion puede afectar
+                        su
+                        rendimiento.</h4>
+                </div>
+                <div class="planilla" id="jugadoresPlanilla">
+                    <ul class="nombre" id="nombrePlanilla">
+                        <li>Nombre</li>
+                    </ul>
+                    <ul class="posicion" id="posicionPlanilla">
+                        <li>Posicion</li>
+                    </ul>
+                    <ul class="valor" id="valorPlanilla">
+                        <li>ValorGral</li>
+                    </ul>
+                    <ul id="botonAgregar-Planilla">
+                        <button>Agregar</button>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </main>
 </body>
+
 </html>
