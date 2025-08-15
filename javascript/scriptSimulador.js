@@ -81,11 +81,12 @@ const jugadores = [
         posicion: "delantero"
     }
 ];
+const numeros = [1, 3, 6, 2, 4, 7, 5, 10, 8, 11, 9];
 
 const posicionesStr = ["jugadorArq", "jugadorDef", "jugadorMedio", "jugadorDel"]
 const posicionesDiv = [arquero, defensores, mediocampistas, delanteros]
 let formacionUser;
-let globosDiv;
+let idGloboJugador;
 
 function primeraFormacion() {
     limpiarFormacion()
@@ -100,6 +101,10 @@ function primeraFormacion() {
             posicionesDiv[i].appendChild(globosDiv)
         }
     }
+    for (let i = 0; i < numeros.length; i++){
+        botonJugador[i].setAttribute("id", numeros[i])
+    }
+    accionarBotones()
 };
 function segundaFormacion() {
     limpiarFormacion()
@@ -114,6 +119,10 @@ function segundaFormacion() {
             posicionesDiv[i].appendChild(globosDiv)
         }
     }
+    for (let i = 0; i < numeros.length; i++){
+        botonJugador[i].setAttribute("id", numeros[i])
+    }
+    accionarBotones();
 };
 function terceraFormacion() {
     limpiarFormacion()
@@ -122,12 +131,16 @@ function terceraFormacion() {
         for (let jug = 0; jug < formacionUser[i]; jug++) {
             globosDiv = document.createElement("div")
             globosDiv.innerHTML = `<div class="globoJugador">
-                            <button class="jugador ${posicionesStr[i]}">0</button>
+                            <button class="jugador ${posicionesStr[i]}" id="">0</button>
                             <p class="nombreJugador">nombre</p>
                         </div>`;
             posicionesDiv[i].appendChild(globosDiv)
         }
     }
+    for (let i = 0; i < numeros.length; i++){
+        botonJugador[i].setAttribute("id", numeros[i])
+    }
+    accionarBotones();
 };
 function limpiarFormacion() {
     arquero.innerHTML = "";
@@ -140,41 +153,40 @@ formacionUno.addEventListener("click", primeraFormacion);
 formacionDos.addEventListener("click", segundaFormacion);
 formacionTres.addEventListener("click", terceraFormacion);
 
-// const botonArquero = document.getElementsByClassName("jugadorArq");
-// const botonDefensor = document.getElementsByClassName("jugadorDef");
-// const botonMedio = document.getElementsByClassName("jugadorMedio");
-// const botonDelantero = document.getElementsByClassName("jugadorDel");
-
-
-
+//globo jugadores
 const jugadoresPlanilla = document.getElementById("jugadoresPlanilla"); //padre
+const botonJugador = document.getElementsByClassName("jugador");
 
+//planilla
 const nombrePlanilla = document.getElementById("nombrePlanilla") //hijo
 const posicionPlanilla = document.getElementById("posicionPlanilla"); //hijo
 const valorPlanilla = document.getElementById("valorPlanilla"); //hijo
 const botonAgregarPlanilla = document.getElementById("botonAgregarPlanilla"); //hijo
 
-
 function listaDeJugadores(jugadores) {
     jugadoresPlanilla.innerHTML = "";
     jugadores.forEach((jugador) => {
         const card = document.createElement("div");
-        card.innerHTML = `<ul id="nombrePlanilla">
+        card.innerHTML = `<ul class="nombrePlanilla">
                         <li>${nombrePlanilla.innerText = jugador.nombre}</li>
                     </ul>
-                    <ul id="posicionPlanilla">
+                    <ul class="posicionPlanilla">
                         <li>${posicionPlanilla.innerText = jugador.posicion}</li>
                     </ul>
-                    <ul id="valorPlanilla">
+                    <ul class="valorPlanilla">
                         <li>${valorPlanilla.innerText = jugador.valorGeneral}</li>
                     </ul>
                     <ul>
-                        <button id="botonAgregar-Planilla" class="btn">Agregar</button>
+                        <button class="botonAgregarPlanilla btn">Agregar</button>
                     </ul>`;
         jugadoresPlanilla.appendChild(card)
-        // console.log(jugadoresPlanilla)
     });
 };
 
-listaDeJugadores(jugadores)
-
+function accionarBotones(){
+    for(let boton of botonJugador){
+        boton.addEventListener("click", ()=>{
+            listaDeJugadores(jugadores)
+        });
+    }
+};
